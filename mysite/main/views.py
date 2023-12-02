@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import NowShowingMovie, UpcomingMovie, Contact, Transaction, Reg
 from main.forms import RegForm, ContactForm 
@@ -20,9 +20,14 @@ def movies(request):
     upcoming_movies = UpcomingMovie.objects.all()
     return render(request, 'main/movies.html', {'now_showing_movies': now_showing_movies, 'upcoming_movies': upcoming_movies})
 
-def movie_details(request, movie_id):
-    movie = NowShowingMovie.objects.get(id=movie_id)
-    return render(request, 'main/movie_details.html', {'movie': movie})
+def now_showing_details(request, now_showing_id):
+    movie = get_object_or_404(NowShowingMovie, pk=now_showing_id)
+    return render(request, 'movie_details.html', {'movie': movie})
+
+
+def upcoming_details(request, upcoming_id):
+    movie = get_object_or_404(UpcomingMovie, pk=upcoming_id)
+    return render(request, 'movie_details.html', {'movie': movie})
 
 def transaction(request, movie_id):
     # Implement your transaction logic
@@ -71,6 +76,22 @@ def contact_us(request):
     else:
         form = ContactForm()
     return render(request, 'main/contact.html', {'form': form})
+
+# movie_reservation/views.py
+def transaction_view(request):
+    #return HttpResponse("Thi is transaction page!")   
+    if request.method == 'POST':
+        # Process the transaction and save the details in the Transaction model
+        # In a real-world scenario, you would handle payment processing and store relevant information in the database.
+        # For simplicity, we are just creating a dummy transaction with seat details.
+        seat_details = request.POST.getlist('selected_seats[]')
+        transaction = Transaction.objects.create(seats=", ".join(seat_details))
+        transaction.save()
+
+        return HttpResponse(f'Transaction successful! Transaction ID: {transaction.id}')
+
+    return render(request, 'main/transaction.html')  # Assuming you have a transaction.html template
+
 
 #def buy_ticket(request):
     if request.method == 'POST':

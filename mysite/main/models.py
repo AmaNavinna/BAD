@@ -47,7 +47,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-# Define a model for transactions
+# Define a model for transactionsx
 class Transaction(models.Model):
     date = models.DateField()
     movie = models.ForeignKey(NowShowingMovie, on_delete=models.CASCADE)
@@ -64,4 +64,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.user_name} - {self.movie.name} - {self.date}"
+
+
 
