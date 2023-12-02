@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Reservation</title>
+    <style>body {
+        background-color: #1c1c1c;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    section {
+        margin: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        background-color: #333;
+        color: #fff;
+        border: 1px solid #555;
+        border-radius: 5px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+    
+    th, td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #555;
+    }
+    
+    th {
+        background-color: #333;
+    }
+    
+    .seat {
+        background-color: #555;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .seat.selected {
+        background-color: #4CAF50;
+    }
+    
+    .payment-section {
+        background-color: #333;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    /* Media Queries for Responsive Design */
+    
+    /* For tablets and small screens */
+    @media only screen and (max-width: 768px) {
+        input, select {
+            width: calc(100% - 20px);
+        }
+    }
+    
+    /* For mobile devices */
+    @media only screen and (max-width: 480px) {
+        table {
+            font-size: 14px;
+        }
+    }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Reserve Your Tickets</h1>
+    </header>
+
+    <section>
+        <h2>Select a Date</h2>
+        <input type="datetime-local">
+
+        <h2>Select a Movie</h2>
+        <select>
+            <option value="movie1">Movie 1</option>
+            <option value="movie2">Movie 2</option>
+            <option value="movie3">Movie 3</option>
+        </select>
+
+        <h2>Select Show Time</h2>
+        <select>
+            <option value="time1">12:00 PM</option>
+            <option value="time2">3:00 PM</option>
+            <option value="time3">6:00 PM</option>
+        </select>
+    </section>
+
+    <section>
+        <h2>Your Details</h2>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your Name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Your Email">
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Your Phone Number">
+    </section>
+
+    <section>
+        <h2>Pick a Seat</h2>
+        <table id="seatTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    <th>I</th>
+                    <th>J</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1</td>
+                    <td class="seat">A1</td>
+                    <td class="seat">B1</td>
+                    <td class="seat">C1</td>
+                    <td class="seat">D1</td>
+                    <td class="seat">E1</td>
+                    <td class="seat">F1</td>
+                    <td class="seat">G1</td>
+                    <td class="seat">H1</td>
+                    <td class="seat">I1</td>
+                    <td class="seat">J1</td>
+                </tr>
+                <tr>
+                    <td>Row 2</td>
+                    <td class="seat">A2</td>
+                    <td class="seat">B2</td>
+                    <td class="seat">C2</td>
+                    <td class="seat">D2</td>
+                    <td class="seat">E2</td>
+                    <td class="seat">F2</td>
+                    <td class="seat">G2</td>
+                    <td class="seat">H2</td>
+                    <td class="seat">I2</td>
+                    <td class="seat">J2</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </section>
+
+    <section class="payment-section">
+        <h2>Payment Details</h2>
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" placeholder="Card Number">
+
+        <label for="expiryDate">Expiry Date</label>
+        <input type="datetime-local" id="expiryDate">
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="CVV">
+
+        <label for="cardHolderName">Card Holder Name</label>
+        <input type="text" id="cardHolderName" placeholder="Card Holder Name">
+
+        <button onclick="processPayment()">Submit Payment</button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("seatTable").addEventListener("click", function (event) {
+                if (event.target.classList.contains("seat")) {
+                    toggleSeatSelection(event.target);
+                }
+            });
+        });
+
+        function toggleSeatSelection(seat) {
+            seat.classList.toggle("selected");
+        }
+
+        function processPayment() {
+            alert("Payment processed successfully!");
+            // In a real-world scenario, you would handle the payment processing on the server side.
+        }
+    </script>
+</body>
+</html>
