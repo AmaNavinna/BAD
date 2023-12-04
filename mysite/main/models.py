@@ -4,7 +4,7 @@ from django.db import models
 
 class NowShowingMovie(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="pics", default="default.png")
+    image = models.URLField(default='https://user-images.githubusercontent.com/52632898/161646398-6d49eca9-267f-4eab-a5a7-6ba6069d21df.png')
     date = models.DateField()
     duration = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
@@ -18,7 +18,7 @@ class NowShowingMovie(models.Model):
 # Define a model for upcoming movies
 class UpcomingMovie(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="pics", default="default.png")
+    image = models.URLField(default='https://user-images.githubusercontent.com/52632898/161646398-6d49eca9-267f-4eab-a5a7-6ba6069d21df.png')
     date = models.DateField()
     duration = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
@@ -64,6 +64,4 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.user_name} - {self.movie.name} - {self.date}"
-
-
 
