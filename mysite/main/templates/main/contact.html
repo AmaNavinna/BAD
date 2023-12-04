@@ -161,10 +161,10 @@
     <!-- Replace the existing content with the following code -->
     <section class="contact-us mb-5">
                 <div class="container">
-                    <img src="" width="1225" height="300" class="logo">
+                    <img src="{% static "images/MovieTheater.jpg" %}" width="1225" height="300" class="logo">
                     <h2 class="text-white">Contact Us</h2>
                     <div class="text-center"><p class="text-warning">Have questions or feedback? Reach out to us!</p></div>
-                    <form method="post" action="{% url 'contact_us' %}">
+                    <form method="post" action="{% url 'main:contact_us' %}">
                         <div class="mb-3">
                             <label for="name" class="form-label text-white">Name</label>
                             <input type="text" class="form-control" id="name" name="name" required>
