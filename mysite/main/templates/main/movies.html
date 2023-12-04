@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,30 +10,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <style>
-    body {
+    <style>body {
         background-color: #1c1c1c;
         color: #fff;
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
     }
-
+    
     header {
         background-color: #333;
         padding: 10px;
         text-align: center;
     }
 
+    .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    }
+    
     section {
         margin: 20px;
     }
-
+    
     label {
         display: block;
         margin-bottom: 8px;
     }
-
+    
     input, select {
         width: 100%;
         padding: 10px;
@@ -41,39 +49,39 @@
         border: 1px solid #555;
         border-radius: 5px;
     }
-
+    
     table {
         width: 100%;
         border-collapse: collapse;
         margin-bottom: 15px;
     }
-
+    
     th, td {
         padding: 10px;
         text-align: center;
         border: 1px solid #555;
     }
-
+    
     th {
         background-color: #333;
     }
-
+    
     .seat {
         background-color: #555;
         color: #fff;
         cursor: pointer;
     }
-
+    
     .seat.selected {
         background-color: #4CAF50;
     }
-
+    
     .payment-section {
         background-color: #333;
         padding: 20px;
         margin-top: 20px;
     }
-
+    
     button {
         background-color: #4CAF50;
         color: #fff;
@@ -82,74 +90,147 @@
         border-radius: 5px;
         cursor: pointer;
     }
-
+    
     button:hover {
         background-color: #45a049;
     }
-
+    
     /* Media Queries for Responsive Design */
-
+    
     /* For tablets and small screens */
     @media only screen and (max-width: 768px) {
         input, select {
             width: calc(100% - 20px);
         }
     }
-
+    
     /* For mobile devices */
     @media only screen and (max-width: 480px) {
         table {
             font-size: 14px;
         }
     }
+
+    /* Move menu links to the left */
+        .menu-bar {
+            margin-left: 1000px; /* Adjust the margin as needed */
+        }
+
+        .menu-bar a {
+            margin-right: 15px; /* Adjust the margin between links as needed */
+        }
     </style>
 </head>
 
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Your existing head content -->
-</head>
-
-<body>
-    <section class="screening container mt-5">
-        <h2 class="text-center text-white">MOVIES</h2>
-        <div class="d-flex mt-5 mb-5 flex-row flex-wrap justify-content-center align-items-center">
-            <!-- Movie 1 -->
-            <div class="movie-card-2 mx-2 my-4 d-flex flex-column justify-content-between">
-                <img src="D:\FoB\Semester 6\BAD\MovieHub2\MovieHub\res\images\movies\Movie 11.jpg" alt="movie1" class="movie-img-2 rounded-4">
-                <div class="text-content d-flex flex-column justify-content-center align-items-left">
-                    <h5 class="text-white">Kathuru Mithuru</h5>
-                    <h6 class="text-warning">Sinhala - 1h 55m</h6>
-                    <!-- About the Movie -->
-                    <a href="./movie_details/{{ movie.id }}" class="text-decoration-none text-white">About the movie >></a>
-                    <div class="d-flex flex-row">
-                        <!-- Buy Tickets -->
-                        <div class="btn btn-warning w-50 me-2">
-                            <a href="{% url 'transaction' %}"class="text-dark text-decoration-none">Buy Tickets</a>
-                        </div>
-                        
-                        <!-- Watch Trailer -->
-                        <div class="btn btn-outline-light w-50 ms-2">
-                            <a href="https://www.youtube.com/watch?v=https://youtu.be/eXfk7hTsmGQ?si=rzmdsIjP2Db2960Q" target="_blank" class="text-decoration-none text-white">Watch Trailer</a>
-                        </div>
-                    </div>
+    <section class="header">
+        <div class="container h-100 pt-4 d-flex flex-column justify-content-between">
+            <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
+                <img src="{% static "images/logo.png" %}" class="logo">
+                <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
+                    <a href="{% url 'main:home' %}" class="nav-link active text-white mx-3">Home</a>
+                    <a href="{% url 'main:movies' %}" class="nav-link text-white mx-3">Movies</a>
+                    <a href="{% url 'main:contact_us' %}" class="nav-link text-white mx-3">Contact Us</a>
                 </div>
             </div>
-            <!-- Repeat the above structure for other movies -->
-
         </div>
     </section>
+    <!-- Replace the existing content with the following code -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
+<!-- Now Showing Movies -->
+<section class="screening container mt-5">
+    <h2 class="text-center text-white">NOW SHOWING</h2>
+    <div class="movie-wrapper mt-5 mb-5 d-flex flex-wrap flex-row justify-content-center align-items-center">
+        {% for movie in now_showing_movies %}
+            <div class="movie-card d-flex mx-3 my-3">
+                <img src="{{ movie.image.url }}" alt="{{ movie.name }}" class="movie-img rounded-4">
+                <h3>{{ movie.name }}</h3>
+                <p>{{ movie.date }}</p>
+                <p>{{ movie.duration }}</p>
+                <!-- Buy Tickets -->
+                <div class="btn btn-warning w-50 me-2">
+                    <a href="{% url 'main:transaction' %}" class="text-dark text-decoration-none">Buy Tickets</a>
+                </div>
+                <!-- Add more details as needed -->
+            </div>
+        {% endfor %}
+    </div>
+</section>
 
-</html>
+<!-- Upcoming Movies -->
+<section class="screening container mt-5">
+    <h2 class="text-center text-white">UPCOMING MOVIES</h2>
+    <div class="movie-wrapper mt-5 mb-5 d-flex flex-wrap flex-row justify-content-center align-items-center">
+        {% for movie in upcoming_movies %}
+            <div class="movie-card d-flex mx-3 my-3">
+                <img src="{{ movie.image.url }}" alt="{{ movie.name }}" class="movie-img rounded-4">
+                <h3>{{ movie.name }}</h3>
+                <p>{{ movie.date }}</p>
+                <!-- Buy Tickets -->
+                <div class="btn btn-warning w-50 me-2">
+                    <a href="{% url 'transaction' %}"class="text-dark text-decoration-none">Buy Tickets</a>
+                </div>  
+                <!-- Add more details as needed -->
+            </div>
+        {% endfor %}
+    </div>
+</section>
 
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the
+                    upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or
+                    snippets as the code wants to be simple. We will help programmers build up concepts in different
+                    programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android,
+                    SQL and Algorithm.</p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                    <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe to Newsletter -->
+            <div class="col-md-3">
+                <h6>Subscribe for Latest Updates</h6>
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="submit">Subscribe</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                    <a> MovieHub</a>.
+                </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</footer>
 </body>
 
 </html>
