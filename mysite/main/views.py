@@ -20,14 +20,22 @@ def movies(request):
     upcoming_movies = UpcomingMovie.objects.all()
     return render(request, 'main/movies.html', {'now_showing_movies': now_showing_movies, 'upcoming_movies': upcoming_movies})
 
-def now_showing_details(request, now_showing_id):
-    movie = get_object_or_404(NowShowingMovie, pk=now_showing_id)
-    return render(request, 'movie_details.html', {'movie': movie})
 
+#def movie_details(request, movie_type, movie_id):
+    model_class = None
+    template_name = 'movie_details.html'
 
-def upcoming_details(request, upcoming_id):
-    movie = get_object_or_404(UpcomingMovie, pk=upcoming_id)
-    return render(request, 'movie_details.html', {'movie': movie})
+    if movie_type == 'now_showing':
+        model_class = NowShowingMovie
+    elif movie_type == 'upcoming':
+        model_class = UpcomingMovie
+    else:
+        # Handle invalid movie_type, maybe raise a 404 or redirect
+        pass
+
+    movie = get_object_or_404(model_class, pk=movie_id)
+    return render(request, template_name, {'movie': movie, 'movie_type': movie_type})
+
 
 def transaction(request, movie_id):
     # Implement your transaction logic
