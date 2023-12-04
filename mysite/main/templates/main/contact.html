@@ -159,7 +159,28 @@
         </div>
     </section>
     <!-- Replace the existing content with the following code -->
-
+    <section class="contact-us mb-5">
+                <div class="container">
+                    <img src="" width="1225" height="300" class="logo">
+                    <h2 class="text-white">Contact Us</h2>
+                    <div class="text-center"><p class="text-warning">Have questions or feedback? Reach out to us!</p></div>
+                    <form method="post" action="{% url 'contact_us' %}">
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-white">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-white">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label text-white">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </section>
 
 <footer class="site-footer">
     <div class="container">
