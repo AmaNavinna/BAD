@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Ticket Reservation</title>
+    <title>Buy Tickets - FILMAX CINAMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>body {
         background-color: #1c1c1c;
         color: #fff;
@@ -25,16 +27,18 @@
     label {
         display: block;
         margin-bottom: 8px;
+        font-size: 15px;
     }
     
     input, select {
         width: 100%;
         padding: 10px;
         margin-bottom: 15px;
-        background-color: #333;
+        background-color: #2c374a;
         color: #fff;
         border: 1px solid #555;
         border-radius: 5px;
+        font-size:12px;
     }
     
     table {
@@ -64,14 +68,14 @@
     }
     
     .payment-section {
-        background-color: #333;
-        padding: 20px;
+        background-color: #080e26;
+        padding: 60px;
         margin-top: 20px;
     }
     
     button {
         background-color: #4CAF50;
-        color: #fff;
+        color: #040504;
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
@@ -80,6 +84,9 @@
     
     button:hover {
         background-color: #45a049;
+    }
+    h2 {
+        font-size: 20px; 
     }
     
     /* Media Queries for Responsive Design */
@@ -100,8 +107,23 @@
         </style>
 </head>
 <body>
+    <section class="header">
+        <div class="container h-100 pt-4 d-flex flex-column justify-content-between">
+            <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
+                <img src="D:\FoB\Semester 6\BAD\MovieHub2\MovieHub\res\images\1.png" width="80" height="100" alt="logo" class="logo">
+                <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
+                    <a href="./index.html" class="nav-link text-white mx-3">Home</a>
+                    <a href="./index.html" class="nav-link text-white mx-3">Movies</a>
+                    <a href="./contact-us/" class="nav-link text-white mx-3">Contact Us</a>
+                    <a href="./tickets.html" class="nav-link text-white mx-3">
+                        <div class="btn btn-warning">Buy Tickets</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <header>
-        <h1>Reserve Your Tickets</h1>
+        <h1>Reserve Your Seats</h1>
     </header>
 
     <section>
@@ -113,13 +135,17 @@
             <option value="movie1">Movie 1</option>
             <option value="movie2">Movie 2</option>
             <option value="movie3">Movie 3</option>
+            <option value="movie4">Movie 4</option>
+            <option value="movie5">Movie 5</option>
         </select>
 
         <h2>Select Show Time</h2>
         <select>
-            <option value="time1">12:00 PM</option>
-            <option value="time2">3:00 PM</option>
-            <option value="time3">6:00 PM</option>
+            <option value="time1">9:00 AM</option>
+            <option value="time2">12:00 PM</option>
+            <option value="time3">3:00 PM</option>
+            <option value="time4">6:00 PM</option>
+            <option value="time5">9:00 PM</option>
         </select>
     </section>
 
@@ -141,16 +167,16 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>A</th>
-                    <th>B</th>
+                    <th></th>
+                    <th></th>
+                    <th>S</th>
                     <th>C</th>
-                    <th>D</th>
+                    <th>R</th>
                     <th>E</th>
-                    <th>F</th>
-                    <th>G</th>
-                    <th>H</th>
-                    <th>I</th>
-                    <th>J</th>
+                    <th>E</th>
+                    <th>N</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -180,6 +206,45 @@
                     <td class="seat">I2</td>
                     <td class="seat">J2</td>
                 </tr>
+                <tr>
+                    <td>Row 3</td>
+                    <td class="seat">A3</td>
+                    <td class="seat">B3</td>
+                    <td class="seat">C3</td>
+                    <td class="seat">D3</td>
+                    <td class="seat">E3</td>
+                    <td class="seat">F3</td>
+                    <td class="seat">G3</td>
+                    <td class="seat">H3</td>
+                    <td class="seat">I3</td>
+                    <td class="seat">J3</td>
+                </tr>
+                <tr>
+                    <td>Row 4</td>
+                    <td class="seat">A4</td>
+                    <td class="seat">B4</td>
+                    <td class="seat">C4</td>
+                    <td class="seat">D4</td>
+                    <td class="seat">E4</td>
+                    <td class="seat">F4</td>
+                    <td class="seat">G4</td>
+                    <td class="seat">H4</td>
+                    <td class="seat">I4</td>
+                    <td class="seat">J4</td>
+                </tr>
+                <tr>
+                    <td>Row 5</td>
+                    <td class="seat">A5</td>
+                    <td class="seat">B5</td>
+                    <td class="seat">C5</td>
+                    <td class="seat">D5</td>
+                    <td class="seat">E5</td>
+                    <td class="seat">F5</td>
+                    <td class="seat">G5</td>
+                    <td class="seat">H5</td>
+                    <td class="seat">I5</td>
+                    <td class="seat">J5</td>
+                </tr>
                 <!-- Add more rows as needed -->
             </tbody>
         </table>
@@ -199,7 +264,7 @@
         <label for="cardHolderName">Card Holder Name</label>
         <input type="text" id="cardHolderName" placeholder="Card Holder Name">
 
-        <button onclick="processPayment()">Submit Payment</button>
+        <button onclick="processPayment()">Confirm Payment</button>
     </section>
 
     <script>
