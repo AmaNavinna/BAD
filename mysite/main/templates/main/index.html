@@ -1,196 +1,275 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - FILMAX CINEMAS</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-aKs2ZL2FZuMKSFi+exvF4jsvTC+4VIxDtvZxMtVVZZzB1MdAzLl3WSdUfKDS3orS" crossorigin="anonymous">
+    <title>MovieHub</title>
 
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-aKs2ZL2FZuMKSFi+exvF4jsvTC+4VIxDtvZxMtVVZZzB1MdAzLl3WSdUfKDS3orS" crossorigin="anonymous">
     <style>
           body {
               background-color: black;
-              color: #fff;
           }
+          
           .header{
-           width: 100vw;
-           height: 80vh;
-           background:url(https://media.istockphoto.com/id/1160221860/video/moving-through-the-dark-modern-cinema-hall-over-the-chairs-to-the-lighting-up-screen.jpg?s=640x640&k=20&c=nGFJlzVIq1PPeS3cD6bcgo2AnLQ6bWOmD_1-HcDgPHc=) no-repeat center center/cover;
-           background-attachment: fixed;
-           }
-
-           .logo {
-            width: 150px; /* Adjust the width as needed */
-            height: auto; /* To maintain the aspect ratio */
-        }
-
-
-        .menu-bar {
-            font-size: 20px; /* Adjust the font size as needed */
-        }
-
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: normal; /* Set initial font weight */
-            transition: font-weight 0.3s ease; /* Add smooth transition effect */
-        }
-    
-        .nav-link.active,
-        .nav-link:hover {
-            font-weight: bold; /* Set font weight on hover or when the link is active */
-        }
-
-
-
+              width: 100vw;
+              height: 10vh;
+              background-attachment: fixed;
+          }
+          
+          .overlay{
+              width: 100%;
+              height: 100%;
+              background: rgba(1, 1, 27, 0.8);
+          }
+          
+          .navbar{
+              background-color: transparent !important;
+              height: 10px;
+          }
+          
+          .logo{
+              width: 120px;
+              height: 80px;
+          }
+          
+          .nav-link{
+              font-size: 20px;
+          }
+          
           .site-footer
           {
             background-color:#26272b;
-            padding:20px  10px;
+            padding:45px 0 20px;
             font-size:15px;
             line-height:24px;
             color:#737373;
           }
-
-
-          .card-title a {
-            text-decoration: none; /* Remove underline for movie name */
-            font-weight: bold; /* Make movie name text bold */
-            color: #fff; /* Set text color to white */
-        }
-
-        .card {
-            background-color: #d3d3d3; /* Change background color to light gray */
-            height: 250px; /* Adjust the height as needed */
-        }
-
-        .card-body {
-            background-color: #1c1c1c; /* Change background color to light gray */
-            
-        }
-
-        .movie-image {
-            width: 100%;
-            height: 0;
-            padding-bottom: 5%; /* Set the aspect ratio (height/width * 100) */
-            object-fit: cover;
-        }
-
-        .card-body img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .text-center.text-white {
-            margin: 40px 0; /* Adjust the values as needed */
-            
-        }
-        .footer-links a {
-            color: #737373;
-            text-decoration: none; /* Remove the underline */
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline; /* Add underline on hover if needed */
-        }
-
+          .site-footer hr
+          {
+            border-top-color:#bbb;
+            opacity:0.5
+          }
+          .site-footer hr.small
+          {
+            margin:20px 0
+          }
+          .site-footer h6
+          {
+            color:#fff;
+            font-size:16px;
+            text-transform:uppercase;
+            margin-top:5px;
+            letter-spacing:2px
+          }
+          .site-footer a
+          {
+            color:#737373;
+          }
+          .site-footer a:hover
+          {
+            color:#3366cc;
+            text-decoration:none;
+          }
+          .footer-links
+          {
+            padding-left:0;
+            list-style:none
+          }
+          .footer-links li
+          {
+            display:block
+          }
+          .footer-links a
+          {
+            color:#737373
+          }
+          .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+          {
+            color:#3366cc;
+            text-decoration:none;
+          }
+          .footer-links.inline li
+          {
+            display:inline-block
+          }
+          .site-footer .social-icons
+          {
+            text-align:right
+          }
+          .site-footer .social-icons a
+          {
+            width:40px;
+            height:40px;
+            line-height:40px;
+            margin-left:6px;
+            margin-right:0;
+            border-radius:100%;
+            background-color:#33353d
+          }
+          .copyright-text
+          {
+            margin:0
+          }
+          @media (max-width:991px)
+          {
+            .site-footer [class^=col-]
+            {
+              margin-bottom:30px
+            }
+          }
+          @media (max-width:767px)
+          {
+            .site-footer
+            {
+              padding-bottom:0
+            }
+            .site-footer .copyright-text,.site-footer .social-icons
+            {
+              text-align:center
+            }
+          }
+          .social-icons
+          {
+            padding-left:0;
+            margin-bottom:0;
+            list-style:none
+          }
+          .social-icons li
+          {
+            display:inline-block;
+            margin-bottom:4px
+          }
+          .social-icons li.title
+          {
+            margin-right:15px;
+            text-transform:uppercase;
+            color:#96a2b2;
+            font-weight:700;
+            font-size:13px
+          }
+          .social-icons a{
+            background-color:#eceeef;
+            color:#818a91;
+            font-size:16px;
+            display:inline-block;
+            line-height:44px;
+            width:44px;
+            height:44px;
+            text-align:center;
+            margin-right:8px;
+            border-radius:100%;
+            -webkit-transition:all .2s linear;
+            -o-transition:all .2s linear;
+            transition:all .2s linear
+          }
+          .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+          {
+            color:#fff;
+            background-color:#29aafe
+          }
+          .social-icons.size-sm a
+          {
+            line-height:34px;
+            height:34px;
+            width:34px;
+            font-size:14px
+          }
+          .social-icons a.facebook:hover
+          {
+            background-color:#3b5998
+          }
+          .social-icons a.twitter:hover
+          {
+            background-color:#00aced
+          }
+          .social-icons a.linkedin:hover
+          {
+            background-color:#007bb6
+          }
+          .social-icons a.dribbble:hover
+          {
+            background-color:#ea4c89
+          }
+          @media (max-width:767px)
+          {
+            .social-icons li.title
+            {
+              display:block;
+              margin-right:0;
+              font-weight:600
+            }
+          }
+          
+          .footer form {
+              margin-top: 15px;
+          }
+          
+          .footer form .input-group {
+              width: 100%;
+          }
+          
+          .footer form input {
+              width: 70%;
+          }
+          
+          .footer form button {
+              width: 30%;
+          }
       </style>
 
 </head>
 
 <body>
     <section class="header">
-        <div class="container h-100 pt-4 d-flex flex-column justify-content-between">
+        <div class="container h-10 pt-4 d-flex flex-column justify-content-between">
             <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
-                 <img src="{% static "images/logo.png" %}" width="80" height="100" alt="logo" class="logo">
+                <img src="./res/images/logo.png" alt="logo" class="logo">
                 <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
-                    <a href="{% url 'main:home' %}" class="nav-link active text-white mx-3">Home</a>
-                    <a href="{% url 'main:movies' %}" class="nav-link text-white mx-3">Movies</a>
-                    <a href="{% url 'main:contact_us' %}" class="nav-link text-white mx-3">Contact Us</a>
-                    <a href="{% url 'main:about_us' %}" class="nav-link text-white mx-3">About Us</a>
+                    <a href="{% url 'default_home' %}" class="nav-link active text-white mx-3">Home</a>
+                    <a href="{% url 'about' %}" class="nav-link text-white mx-3">About</a>
+                    <a href="{% url 'movies' %}" class="nav-link text-white mx-3">Our Cinemas</a>
                 </div>
             </div>
-            <div class="d-flex flex-column justify-content-center align-items-left mb-5">
-                <h1 class="text-white film-name">FILMAX CINEMAS</h1>
-            </div>
         </div>
     </section>
+    {% block body %}
+    {% endblock %}
 
-<!-- Now Showing Movies -->
-<body>
-    <section class="screening container mt-5">
-        <h2 class="text-center text-white">NOW SHOWING</h2>
-        <div class="row">
-            {% for movie in now_showing_movies %}
-                <div class="col-md-4 mb-4">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-body d-flex flex-column">
-                            <img class="card-img-top movie-image" src="{{ movie.image }}" alt="{{ movie.name }}">
-                            <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
-
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                    </div><div class="row">
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
-
-    <!-- Upcoming Movies -->
-    <section class="screening container mt-5">
-        <h2 class="text-center text-white">NOW SHOWING</h2>
-        <div class="row">
-            {% for movie in upcoming_movies %}
-                <div class="col-md-4 mb-4">
-                    <div class="card" style="height: 100%;">
-                        <div class="card-body d-flex flex-column">
-                            <img class="card-img-top movie-image" src="{{ movie.image }}" alt="{{ movie.name }}">
-                            <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
-
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                    </div><div class="row">
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
-  <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="row">
-<<<<<<< HEAD
                 <div class="col-sm-12 col-md-6">
                     <h6>About</h6>
-                    <p class="text-justify">"Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!"</p>
+                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the
+                        upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or
+                        snippets as the code wants to be simple. We will help programmers build up concepts in different
+                        programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android,
+                        SQL and Algorithm.</p>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-xs-6 col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a href="{% url 'main:about_us' %}">About Us</a></li>
-                        <li><a href="{% url 'main:contact_us' %}">Contact Us</a></li>
+                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
                     </ul>
                 </div>
 
+                <!-- Subscribe to Newsletter -->
                 <div class="col-md-3">
                     <h6>Subscribe for Latest Updates</h6>
-                    <form action="#" method="post" class="input-group">
-                        <input type="email" class="form-control" placeholder="Enter your email">
-                        <button class="btn btn-secondary" type="submit">Subscribe</button>
+                    <form action="#" method="post">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit">Subscribe</button>
+                            </span>
+                        </div>
                     </form>
-=======
-                <div class="col-sm-20 col-md-30">
-                    <h4>About Us</h4>
-                    <p class="text-justify"><b> Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!</i></p>
->>>>>>> ec11c07b2feb8b6dc9ba08baf9f82cb0be973c58
                 </div>
             </div>
             <hr>
@@ -199,12 +278,23 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-                        <a href="#" target="_blank">FILMAX CINEMAS</a>.
+                        <a> MovieHub</a>.
                     </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
+
     </footer>
 </body>
 
 </html>
+
