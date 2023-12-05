@@ -16,7 +16,7 @@
               color: #fff;
           }
           .header{
-           width: 100vw;
+            width: 100%;
            height: 80vh;
            background:url(https://media.istockphoto.com/id/1160221860/video/moving-through-the-dark-modern-cinema-hall-over-the-chairs-to-the-lighting-up-screen.jpg?s=640x640&k=20&c=nGFJlzVIq1PPeS3cD6bcgo2AnLQ6bWOmD_1-HcDgPHc=) no-repeat center center/cover;
            background-attachment: fixed;
@@ -48,18 +48,6 @@
             color:#737373;
           }
 
-
-          .site-footer .social-icons a
-          {
-            width:40px;
-            height:40px;
-            line-height:40px;
-            margin-left:6px;
-            margin-right:0;
-            border-radius:200%;
-            background-color:#33353d
-          }
-
           .card-title a {
             text-decoration: none; /* Remove underline for movie name */
             font-weight: bold; /* Make movie name text bold */
@@ -82,6 +70,10 @@
             padding-bottom: 5%; /* Set the aspect ratio (height/width * 100) */
             object-fit: cover;
         }
+        .card-text {
+            color: white;
+        }
+        
 
         .card-body img {
             width: 100%;
@@ -99,6 +91,18 @@
         
         .footer-links a:hover {
             text-decoration: underline; /* Add underline on hover if needed */
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal; /* Set initial font weight */
+            transition: font-weight 0.3s ease; /* Add smooth transition effect */
+        }
+    
+        .nav-link.active,
+        .nav-link:hover {
+            font-weight: bold; /* Set font weight on hover or when the link is active */
         }
 
       </style>
@@ -124,7 +128,7 @@
     </section>
 
     <section class="screening container mt-5">
-        <h2 class="text-center text-white">NOW SHOWING</h2>
+        <h2 class="text-center text-white">NOW SHOWING MOVIES</h2>
         <div class="row">
             {% for movie in now_showing_movies %}
                 <div class="col-md-4 mb-4">
@@ -133,6 +137,7 @@
                             <img class="card-img-top movie-image" src="{{ movie.image }}" alt="{{ movie.name }}">
                             <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
                             <p class="card-text">Date: {{ movie.date }}</p>
+                            <p class="card-text">Show Time: {{ movie.showtime }}</p>
                             <a href="{% url 'main:transaction' %}" class="btn btn-primary mt-auto">Book Now</a>
                             <!-- Add more details below the buttons as needed -->
                         </div>
@@ -149,7 +154,7 @@
 
    <!-- Upcoming Movies -->
    <section class="screening container mt-5">
-    <h2 class="text-center text-white">NOW SHOWING</h2>
+    <h2 class="text-center text-white">UP COMING MOVIES</h2>
     <div class="row">
         {% for movie in upcoming_movies %}
             <div class="col-md-4 mb-4">
@@ -169,23 +174,12 @@
         {% endfor %}
     </div>
 </section>
-
-<<<<<<< HEAD
 <footer class="site-footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>About</h6>
                 <p class="text-justify">"Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!"</p>
-=======
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-20 col-md-30">
-                    <h4>About Us</h4>
-                    <p class="text-justify"><b>WELCOME TO FIMAX CINEMAS,</b><i> Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!</i></i></p>
-                </div>
->>>>>>> ec11c07b2feb8b6dc9ba08baf9f82cb0be973c58
             </div>
 
             <div class="col-md-3">
