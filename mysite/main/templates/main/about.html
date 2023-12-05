@@ -1,251 +1,66 @@
-{%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>MovieHub</title>
-
-   
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-aKs2ZL2FZuMKSFi+exvF4jsvTC+4VIxDtvZxMtVVZZzB1MdAzLl3WSdUfKDS3orS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-          body {
-              background-color: black;
-          }
-          
-          .header{
-              width: 100vw;
-              height: 10vh;
-              background-attachment: fixed;
-              margin-bottom:150px;
-          }
-          
-          .overlay{
-              width: 100%;
-              height: 100%;
-              background: rgba(1, 1, 27, 0.8);
-          }
+        body {
+            font-family: Arial2, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
 
-          
-          
-          .navbar{
-              background-color: transparent !important;
-              height: 10px;
-          }
-          
-          .logo {
-            width: 150px;
+        header {
+            background-color: black;
+            color: #fff;
+            text-align: justify;
+            padding: 1em;
+        }
+
+        section {
+            margin: 18px;
+            text-align: justify;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: red;
+        }
+
+        img {
+            max-width: 100%;
             height: auto;
-          
-          }
-          
-          .menu-bar {
-            font-size: 20px; /* Adjust the font size as needed */
         }
-
-        .menu-bar .nav-link {
-            margin-right: 20px; /* Adjust the margin as needed */
-        }
-
-          .site-footer
-          {
-            background-color:#26272b;
-            padding:45px 0 20px;
-            font-size:15px;
-            line-height:24px;
-            color:#737373;
-          }
-          .site-footer hr
-          {
-            border-top-color:#bbb;
-            opacity:0.5
-          }
-          .site-footer hr.small
-          {
-            margin:20px 0
-          }
-          .site-footer h6
-          {
-            color:#fff;
-            font-size:16px;
-            text-transform:uppercase;
-            margin-top:5px;
-            letter-spacing:2px
-          }
-          .site-footer a
-          {
-            color:#737373;
-          }
-          .site-footer a:hover
-          {
-            color:#3366cc;
-            text-decoration:none;
-          }
-          .footer-links
-          {
-            padding-left:0;
-            list-style:none
-          }
-          .footer-links li
-          {
-            display:block
-          }
-          .footer-links a
-          {
-            color:#737373
-          }
-          .footer-links a:active,.footer-links a:focus,.footer-links a:hover
-          {
-            color:#3366cc;
-            text-decoration:none;
-          }
-          .footer-links.inline li
-          {
-            display:inline-block
-          }
-          .site-footer .social-icons
-          {
-            text-align:right
-          }
-          .site-footer .social-icons a
-          {
-            width:40px;
-            height:40px;
-            line-height:40px;
-            margin-left:6px;
-            margin-right:0;
-            border-radius:100%;
-            background-color:#33353d
-          }
-          .copyright-text
-          {
-            margin:0
-          }
-          @media (max-width:991px)
-          {
-            .site-footer [class^=col-]
-            {
-              margin-bottom:30px
-            }
-          }
-          @media (max-width:767px)
-          {
-            .site-footer
-            {
-              padding-bottom:0
-            }
-            .site-footer .copyright-text,.site-footer .social-icons
-            {
-              text-align:center
-            }
-          }
-          .social-icons
-          {
-            padding-left:0;
-            margin-bottom:0;
-            list-style:none
-          }
-          .social-icons li
-          {
-            display:inline-block;
-            margin-bottom:4px
-          }
-          .social-icons li.title
-          {
-            margin-right:15px;
-            text-transform:uppercase;
-            color:#96a2b2;
-            font-weight:700;
-            font-size:13px
-          }
-          .social-icons a{
-            background-color:#eceeef;
-            color:#818a91;
-            font-size:16px;
-            display:inline-block;
-            line-height:44px;
-            width:44px;
-            height:44px;
-            text-align:center;
-            margin-right:8px;
-            border-radius:100%;
-            -webkit-transition:all .2s linear;
-            -o-transition:all .2s linear;
-            transition:all .2s linear
-          }
-          .social-icons a:active,.social-icons a:focus,.social-icons a:hover
-          {
-            color:#fff;
-            background-color:#29aafe
-          }
-          .social-icons.size-sm a
-          {
-            line-height:34px;
-            height:34px;
-            width:34px;
-            font-size:14px
-          }
-          .social-icons a.facebook:hover
-          {
-            background-color:#3b5998
-          }
-          .social-icons a.twitter:hover
-          {
-            background-color:#00aced
-          }
-          .social-icons a.linkedin:hover
-          {
-            background-color:#007bb6
-          }
-          .social-icons a.dribbble:hover
-          {
-            background-color:#ea4c89
-          }
-          @media (max-width:767px)
-          {
-            .social-icons li.title
-            {
-              display:block;
-              margin-right:0;
-              font-weight:600
-            }
-          }
-          
-          .footer form {
-              margin-top: 15px;
-          }
-          
-          .footer form .input-group {
-              width: 100%;
-          }
-          
-          .footer form input {
-              width: 70%;
-          }
-          
-          .footer form button {
-              width: 30%;
-          }
-      </style>
-
+    </style>
+    <title>About Us - Filmax Cinema</title>
 </head>
-
 <body>
-    <section class="header">
-        <div class="container h-10 pt-4 d-flex flex-column justify-content-between">
-            <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
-                <img src="{% static "images/logo.png" %}" alt="logo" class="logo">
-                <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
-                    <a href="{% url 'main:home' %}" class="nav-link active text-white mx-3">Home</a>
-                    <a href="{% url 'main:movies' %}" class="nav-link text-white mx-3">Movies</a>
-                    <a href="{% url 'main:contact_us' %}" class="nav-link text-white mx-3">Contact Us</a>
-                    <a href="{% url 'main:about_us' %}" class="nav-link text-white mx-3">About Us</a>
-                </div>
-            </div>
-        </div>
+
+    <header>
+        <h1>Filmax Cinema</h1>
+    </header>
+
+    <section>
+        <h2>About Us</h2>
+
+        <p>Welcome to Filmax Cinemas, your exclusive gateway to a cinematic realm reimagined for the modern era! Immerse yourself in an unparalleled movie-watching experience, all conveniently at your fingertips. At Filmax Cinemas, we've revolutionized the way you indulge in the magic of the silver screen through our cutting-edge website.</p>
+
+        <p>A seamless blend of innovation and convenience that puts the latest blockbusters, indie gems, and international films right at your fingertips. No more queues, no more hassle – our user-friendly app lets you effortlessly explore showtimes, handpick your preferred seats, and secure your tickets with just a few taps.</p>
+
+        <p>Our state-of-the-art theaters are equipped with the latest audio and visual technology, ensuring that every movie you watch is a feast for the senses. Whether you're a fan of action-packed blockbusters, heartwarming dramas, or side-splitting comedies, we have something for everyone.But our commitment doesn't stop at your screen. Filmax Cinemas ensures that every visit is not just about the movie; it's about the entire experience. Say goodbye to long waits and hello to comfort and convenience. We bring the box office directly to your device, creating a cinematic journey that's as memorable as it is enjoyable.</p>
+
+        <p>At Filmax Cinema, we believe that watching a movie is more than just a pastime—it's an immersive journey that transports you to different worlds and sparks a range of emotions. Our commitment to excellence extends to every aspect of your visit, from the comfortable seating to the delectable snacks available at our concessions.</p>
+
+        <p>Join us for an unparalleled cinematic experience – where the enchantment of movies meets the ease of modern technology. Welcome to Filmax Cinemas, where every moment is a celebration of cinematic brilliance!We look forward to making your time with us unforgettable, one movie at a time.</p>
+
+        <img src="https://drive.google.com/file/d/1b7ntOA_KRDtb_EMgb4uVV4Tcx1UV20sa/view?usp=drive_link" alt="Movie Theater Interior">
     </section>
+<<<<<<< HEAD
 <style>
 
     .container {
@@ -420,6 +235,27 @@
                     <input type="email" class="form-control" placeholder="Enter your email">
                     <button class="btn btn-secondary" type="submit">Subscribe</button>
                 </form>
+=======
+<footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-20 col-md-30">
+                    <h4>About Us</h4>
+                    <p class="text-justify"><b>WELCOME TO FIMAX CINEMAS,</b><i> Discover The Magic of Movies With Filmax Cinemas – Your Go-To Destination For an Extraordinary Cinematic Experience. Streamlining Convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!</i></i></p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                        <a> FILMAX CINEMAS</a>.
+                    </p>
+                </div>
+
+
+>>>>>>> ec11c07b2feb8b6dc9ba08baf9f82cb0be973c58
             </div>
         </div>
         <hr>
@@ -435,6 +271,4 @@
     </div>
 </footer>
 </body>
-
 </html>
-
