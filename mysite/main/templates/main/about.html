@@ -288,12 +288,14 @@
         border-radius: 20%;
     }
 
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-    }
+    .site-footer
+          {
+            background-color:#26272b;
+            padding:20px  10px;
+            font-size:15px;
+            line-height:24px;
+            color:#737373;
+          }
     .team-section .container {
         display: flex;
         justify-content: space-around; /* Adjust as needed, or use 'space-between' or 'space-evenly' */
@@ -326,6 +328,14 @@
         font-size: 16px; /* You can adjust the size to your preference */
     }
     
+    .footer-links a {
+        color: #737373;
+        text-decoration: none; /* Remove the underline */
+    }
+    
+    .footer-links a:hover {
+        text-decoration: underline; /* Add underline on hover if needed */
+    }
     
 </style>
 
@@ -388,61 +398,42 @@
 </section>
 
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <h6>About</h6>
-                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the
-                        upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or
-                        snippets as the code wants to be simple. We will help programmers build up concepts in different
-                        programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android,
-                        SQL and Algorithm.</p>
-                </div>
-
-                <div class="col-xs-6 col-md-3">
-                    <h6>Quick Links</h6>
-                    <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Subscribe to Newsletter -->
-                <div class="col-md-3">
-                    <h6>Subscribe for Latest Updates</h6>
-                    <form action="#" method="post">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit">Subscribe</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">"Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!"</p>
             </div>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-                        <a> MovieHub</a>.
-                    </p>
-                </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
+            <div class="col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="footer-links">
+                    <li><a href="{% url 'main:about_us' %}">About Us</a></li>
+                    <li><a href="{% url 'main:contact_us' %}">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h6>Subscribe for Latest Updates</h6>
+                <form action="#" method="post" class="input-group">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <button class="btn btn-secondary" type="submit">Subscribe</button>
+                </form>
             </div>
         </div>
-
-    </footer>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                    <a href="#" target="_blank">FILMAX CINEMAS</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 
 </html>

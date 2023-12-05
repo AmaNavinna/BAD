@@ -1,0 +1,82 @@
+body {
+    background-color: rgb(19, 18, 18);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+
+.header{
+    width: 100vw;
+    height: 100vh;
+    /*Add background image (marve.webp) in res/images and add a dark blue overlay upn it*/
+    background: url("../res/images/marvel.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.header2{
+    width: 100vw;
+    height: 100vh;
+    /*Add background image (marve.webp) in res/images and add a dark blue overlay upn it*/
+    background: url("../res/images/movies/movie2.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 27, 0.8);
+}
+
+.navbar{
+    background-color: transparent !important;
+    height: 100px;
+}
+
+.logo{
+    width: 120px;
+    height: 80px;
+}
+
+.nav-link{
+    font-size: 20px;
+}
+
+.film-name{
+    font-size: 50px;
+}
+
+.screening{
+    background-color: transparent;
+}
+
+.movie-card{
+    width: 300px;
+    height: 500px;
+    background-color: transparent;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.movie-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-card-overlay{
+    width: 100%;
+    height: 100%;
+}
+
+.movie-card-2{
+    width: 300px;
+    height: 500px;
+    background-color: transparent;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+
+.movie-img-2{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}

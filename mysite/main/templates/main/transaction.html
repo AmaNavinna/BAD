@@ -1,126 +1,47 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Ticket Reservation</title>
-    <style>body {
-        background-color: #1c1c1c;
-        color: #fff;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/indexStyles.css' %}" rel="stylesheet">
     
-    header {
-        background-color: #333;
-        padding: 10px;
-        text-align: center;
-    }
-    
-    section {
-        margin: 20px;
-    }
-    
-    label {
-        display: block;
-        margin-bottom: 8px;
-    }
-    
-    input, select {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 15px;
-        background-color: #333;
-        color: #fff;
-        border: 1px solid #555;
-        border-radius: 5px;
-    }
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 15px;
-    }
-    
-    th, td {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #555;
-    }
-    
-    th {
-        background-color: #333;
-    }
-    
-    .seat {
-        background-color: #555;
-        color: #fff;
-        cursor: pointer;
-    }
-    
-    .seat.selected {
-        background-color: #4CAF50;
-    }
-    
-    .payment-section {
-        background-color: #333;
-        padding: 20px;
-        margin-top: 20px;
-    }
-    
-    button {
-        background-color: #4CAF50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: #45a049;
-    }
-    
-    /* Media Queries for Responsive Design */
-    
-    /* For tablets and small screens */
-    @media only screen and (max-width: 768px) {
-        input, select {
-            width: calc(100% - 20px);
-        }
-    }
-    
-    /* For mobile devices */
-    @media only screen and (max-width: 480px) {
-        table {
-            font-size: 14px;
-        }
-    }
-        </style>
 </head>
+
 <body>
     <header>
         <h1>Reserve Your Tickets</h1>
     </header>
 
-    <section>
-        <h2>Select a Date</h2>
-        <input type="datetime-local">
+    <section class="booking-section">
+        <div class="screen-section">
+            <h2>Screen</h2>
+            <!-- You can customize the screen content here -->
+            <div class="screen">Screen Content</div>
+        </div>
 
-        <h2>Select a Movie</h2>
-        <select>
-            <option value="movie1">Movie 1</option>
-            <option value="movie2">Movie 2</option>
-            <option value="movie3">Movie 3</option>
-        </select>
+        <div class="booking-details">
+            <h2>Select a Date</h2>
+            <input type="datetime-local">
 
-        <h2>Select Show Time</h2>
-        <select>
-            <option value="time1">12:00 PM</option>
-            <option value="time2">3:00 PM</option>
-            <option value="time3">6:00 PM</option>
-        </select>
+            <h2>Select a Movie</h2>
+            <select>
+                <option value="movie1">Movie 1</option>
+                <option value="movie2">Movie 2</option>
+                <option value="movie3">Movie 3</option>
+            </select>
+
+            <h2>Select Show Time</h2>
+            <select>
+                <option value="time1">12:00 PM</option>
+                <option value="time2">3:00 PM</option>
+                <option value="time3">6:00 PM</option>
+            </select>
+        </div>
     </section>
 
     <section>
@@ -156,31 +77,69 @@
             <tbody>
                 <tr>
                     <td>Row 1</td>
-                    <td class="seat">A1</td>
-                    <td class="seat">B1</td>
-                    <td class="seat">C1</td>
-                    <td class="seat">D1</td>
-                    <td class="seat">E1</td>
-                    <td class="seat">F1</td>
-                    <td class="seat">G1</td>
-                    <td class="seat">H1</td>
-                    <td class="seat">I1</td>
-                    <td class="seat">J1</td>
+                    <td class="seat" data-price="10">A1</td>
+                    <td class="seat" data-price="10">B1</td>
+                    <td class="seat" data-price="10">C1</td>
+                    <td class="seat" data-price="10">D1</td>
+                    <td class="seat" data-price="15">E1</td>
+                    <td class="seat" data-price="15">F1</td>
+                    <td class="seat" data-price="15">G1</td>
+                    <td class="seat" data-price="20">H1</td>
+                    <td class="seat" data-price="20">I1</td>
+                    <td class="seat" data-price="20">J1</td>
                 </tr>
                 <tr>
                     <td>Row 2</td>
-                    <td class="seat">A2</td>
-                    <td class="seat">B2</td>
-                    <td class="seat">C2</td>
-                    <td class="seat">D2</td>
-                    <td class="seat">E2</td>
-                    <td class="seat">F2</td>
-                    <td class="seat">G2</td>
-                    <td class="seat">H2</td>
-                    <td class="seat">I2</td>
-                    <td class="seat">J2</td>
+                    <td class="seat" data-price="10">A1</td>
+                    <td class="seat" data-price="10">B1</td>
+                    <td class="seat" data-price="10">C1</td>
+                    <td class="seat" data-price="10">D1</td>
+                    <td class="seat" data-price="15">E1</td>
+                    <td class="seat" data-price="15">F1</td>
+                    <td class="seat" data-price="15">G1</td>
+                    <td class="seat" data-price="20">H1</td>
+                    <td class="seat" data-price="20">I1</td>
+                    <td class="seat" data-price="20">J1</td>
                 </tr>
-                <!-- Add more rows as needed -->
+                <tr>
+                    <td>Row 3</td>
+                    <td class="seat" data-price="10">A1</td>
+                    <td class="seat" data-price="10">B1</td>
+                    <td class="seat" data-price="10">C1</td>
+                    <td class="seat" data-price="10">D1</td>
+                    <td class="seat" data-price="15">E1</td>
+                    <td class="seat" data-price="15">F1</td>
+                    <td class="seat" data-price="15">G1</td>
+                    <td class="seat" data-price="20">H1</td>
+                    <td class="seat" data-price="20">I1</td>
+                    <td class="seat" data-price="20">J1</td>
+                </tr>
+                <tr>
+                    <td>Row 4</td>
+                    <td class="seat" data-price="10">A1</td>
+                    <td class="seat" data-price="10">B1</td>
+                    <td class="seat" data-price="10">C1</td>
+                    <td class="seat" data-price="10">D1</td>
+                    <td class="seat" data-price="15">E1</td>
+                    <td class="seat" data-price="15">F1</td>
+                    <td class="seat" data-price="15">G1</td>
+                    <td class="seat" data-price="20">H1</td>
+                    <td class="seat" data-price="20">I1</td>
+                    <td class="seat" data-price="20">J1</td>
+                </tr>
+                <tr>
+                    <td>Row 5</td>
+                    <td class="seat" data-price="10">A1</td>
+                    <td class="seat" data-price="10">B1</td>
+                    <td class="seat" data-price="10">C1</td>
+                    <td class="seat" data-price="10">D1</td>
+                    <td class="seat" data-price="15">E1</td>
+                    <td class="seat" data-price="15">F1</td>
+                    <td class="seat" data-price="15">G1</td>
+                    <td class="seat" data-price="20">H1</td>
+                    <td class="seat" data-price="20">I1</td>
+                    <td class="seat" data-price="20">J1</td>
+                </tr>
             </tbody>
         </table>
     </section>
@@ -199,13 +158,14 @@
         <label for="cardHolderName">Card Holder Name</label>
         <input type="text" id="cardHolderName" placeholder="Card Holder Name">
 
-        <button onclick="processPayment()">Submit Payment</button>
+        <p>Total Price: $<span id="totalPrice">0</span></p>
+        <button onclick="processPayment()" class="btn btn-primary mt-auto" id="paymentButton">Submit Payment</button>
     </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("seatTable").addEventListener("click", function (event) {
-                if (event.target.classList.contains("seat")) {
+                if (event.target.classList.contains("seat") && !event.target.classList.contains("reserved")) {
                     toggleSeatSelection(event.target);
                 }
             });
@@ -213,12 +173,34 @@
 
         function toggleSeatSelection(seat) {
             seat.classList.toggle("selected");
+            updateTotalPrice();
+        }
+
+        function updateTotalPrice() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            let totalPrice = 0;
+
+            selectedSeats.forEach(seat => {
+                const seatPrice = parseFloat(seat.getAttribute('data-price')) || 0;
+                totalPrice += seatPrice;
+            });
+
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
         }
 
         function processPayment() {
+            const selectedSeats = document.querySelectorAll('.seat.selected');
+            selectedSeats.forEach(seat => {
+                seat.classList.add("reserved");
+            });
+
             alert("Payment processed successfully!");
             // In a real-world scenario, you would handle the payment processing on the server side.
         }
+        document.getElementById('paymentButton').addEventListener('click', function() {
+            window.location.href = "{% url 'main:home' %}";
+        });
     </script>
 </body>
+
 </html>
