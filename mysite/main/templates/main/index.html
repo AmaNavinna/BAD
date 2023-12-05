@@ -108,11 +108,10 @@
 
 <!-- Upcoming Movies -->
 <section class="screening container mt-5">
-<h2 class="text-center text-white">UPCOMING MOVIES</h2>
-<div class="row">
-    {% for movie in upcoming_movies %}
-        <div class="col-md-4 mb-4">
-
+    <h2 class="text-center text-white">NOW SHOWING</h2>
+    <div class="row">
+        {% for movie in upcoming_movies %}
+            <div class="col-md-4 mb-4">
                 <div class="card-body">
                     <img class="card-img-top" src="{{ movie.image }}" alt="{{ movie.name }}">
                     <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
@@ -121,12 +120,12 @@
                     <!-- Add more details below the buttons as needed -->
                 </div>
             </div>
-        </div>
-        {% if forloop.counter|divisibleby:3 and not forloop.last %}
-            </div><div class="row">
-        {% endif %}
-    {% endfor %}
-</div>
+
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
 </section>
     <footer class="site-footer">
         <div class="container">
