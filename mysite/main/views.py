@@ -108,3 +108,7 @@ def transaction_view(request):
     else:
         # Render the buy ticket form
         return render(request, 'buy_ticket.html')
+
+
+def about_us(request):
+    return render(request, 'main/about.html')
