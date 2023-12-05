@@ -1,109 +1,53 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home - FILMAX CINEMAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-aKs2ZL2FZuMKSFi+exvF4jsvTC+4VIxDtvZxMtVVZZzB1MdAzLl3WSdUfKDS3orS" crossorigin="anonymous">
+
     <style>
-        body {
-            font-family: Arial2, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: black;
+          body {
+              background-color: black;
+              color: #fff;
+          }
+          .header{
+            width: 100%;
+           height: 80vh;
+           background:url(https://media.istockphoto.com/id/1160221860/video/moving-through-the-dark-modern-cinema-hall-over-the-chairs-to-the-lighting-up-screen.jpg?s=640x640&k=20&c=nGFJlzVIq1PPeS3cD6bcgo2AnLQ6bWOmD_1-HcDgPHc=) no-repeat center center/cover;
+           background-attachment: fixed;
+           }
+
+           .logo {
+            width: 150px; /* Adjust the width as needed */
+            height: auto; /* To maintain the aspect ratio */
         }
 
-        header {
-            background-color: black;
-            color: #fff;
-            text-align: justify;
-            padding: 1em;
+
+        .menu-bar {
+            font-size: 20px; /* Adjust the font size as needed */
         }
 
-        section {
-            margin: 18px;
-            text-align: justify;
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: normal; /* Set initial font weight */
+            transition: font-weight 0.3s ease; /* Add smooth transition effect */
         }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            line-height: 1.6;
-            color: red;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-    <title>About Us - Filmax Cinema</title>
-</head>
-<body>
-
-    <header>
-        <h1>Filmax Cinema</h1>
-    </header>
-
-    <section>
-        <h2>About Us</h2>
-
-        <p>Welcome to Filmax Cinemas, your exclusive gateway to a cinematic realm reimagined for the modern era! Immerse yourself in an unparalleled movie-watching experience, all conveniently at your fingertips. At Filmax Cinemas, we've revolutionized the way you indulge in the magic of the silver screen through our cutting-edge website.</p>
-
-        <p>A seamless blend of innovation and convenience that puts the latest blockbusters, indie gems, and international films right at your fingertips. No more queues, no more hassle – our user-friendly app lets you effortlessly explore showtimes, handpick your preferred seats, and secure your tickets with just a few taps.</p>
-
-        <p>Our state-of-the-art theaters are equipped with the latest audio and visual technology, ensuring that every movie you watch is a feast for the senses. Whether you're a fan of action-packed blockbusters, heartwarming dramas, or side-splitting comedies, we have something for everyone.But our commitment doesn't stop at your screen. Filmax Cinemas ensures that every visit is not just about the movie; it's about the entire experience. Say goodbye to long waits and hello to comfort and convenience. We bring the box office directly to your device, creating a cinematic journey that's as memorable as it is enjoyable.</p>
-
-        <p>At Filmax Cinema, we believe that watching a movie is more than just a pastime—it's an immersive journey that transports you to different worlds and sparks a range of emotions. Our commitment to excellence extends to every aspect of your visit, from the comfortable seating to the delectable snacks available at our concessions.</p>
-
-        <p>Join us for an unparalleled cinematic experience – where the enchantment of movies meets the ease of modern technology. Welcome to Filmax Cinemas, where every moment is a celebration of cinematic brilliance!We look forward to making your time with us unforgettable, one movie at a time.</p>
-
-        <img src="https://drive.google.com/file/d/1b7ntOA_KRDtb_EMgb4uVV4Tcx1UV20sa/view?usp=drive_link" alt="Movie Theater Interior">
-    </section>
-<<<<<<< HEAD
-<style>
-
-    .container {
-        width: 80%;
-        margin: auto;
-    }
-
-    .about-section {
-        padding: 50px 0;
-    }
-
-    .about-content {
-        display: flex;
-        align-items: center;
-        color: white; /* Add this line to set the text color to white */
-    }
     
+        .nav-link.active,
+        .nav-link:hover {
+            font-weight: bold; /* Set font weight on hover or when the link is active */
+        }
 
-    .about-image {
-        max-width: 100%;
-        border-radius: 8px;
-    }
 
-    .text-content {
-        margin-left: 20px;
-    }
 
-    .team-section {
-        background-color: #f4f4f4;
-        padding: 50px 0;
-    }
-
-    .team-member {
-        text-align: center;
-        margin: 20px;
-    }
-
-    .team-member-image {
-        max-width: 50%;
-        border-radius: 20%;
-    }
-
-    .site-footer
+          .site-footer
           {
             background-color:#26272b;
             padding:20px  10px;
@@ -111,164 +55,151 @@
             line-height:24px;
             color:#737373;
           }
-    .team-section .container {
-        display: flex;
-        justify-content: space-around; /* Adjust as needed, or use 'space-between' or 'space-evenly' */
-        align-items: center;
-        flex-wrap: wrap; /* Wrap items to the next line if they don't fit in the container */
+
+
+          .card-title a {
+            text-decoration: none; /* Remove underline for movie name */
+            font-weight: bold; /* Make movie name text bold */
+            color: #fff; /* Set text color to white */
+        }
+
+        .card {
+            background-color: #d3d3d3; /* Change background color to light gray */
+            height: 250px; /* Adjust the height as needed */
+        }
+
+        .card-body {
+            background-color: #1c1c1c; /* Change background color to light gray */
+            
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 0;
+            padding-bottom: 5%; /* Set the aspect ratio (height/width * 100) */
+            object-fit: cover;
+        }
+
+        .card-body img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-center.text-white {
+            margin: 40px 0; /* Adjust the values as needed */
+            
+        }
+        .footer-links a {
+            color: #737373;
+            text-decoration: none; /* Remove the underline */
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline; /* Add underline on hover if needed */
+        }
+        .section {
+          margin-bottom: 60px; /* Adjust the margin as needed */
+      }
+      
+      .centered-title {
+        margin-top: 50px; /* Adjust the value as needed */
     }
     
-    .team-member {
-        text-align: center;
-        flex: 1; /* Distribute available space equally among team members */
-        max-width: 200px; /* Optional: Set a maximum width for each team member */
-        margin: 5px; /* Optional: Add margin for spacing between team members */
-    }
-    
-    .team-members-container {
-        display: flex;
-        justify-content: space-between; /* Adjust as needed */
-    }
-    
-    .team-member {
-        text-align: center; /* Optional: Center text within each team member */
-    }
-    
-    .centered-title {
-        text-align: center;
-        color: white;
-    }
-    
-    .team-member h3 {
-        font-size: 16px; /* You can adjust the size to your preference */
-    }
-    
-    .footer-links a {
-        color: #737373;
-        text-decoration: none; /* Remove the underline */
-    }
-    
-    .footer-links a:hover {
-        text-decoration: underline; /* Add underline on hover if needed */
-    }
-    
-</style>
 
-<header>
-   
-</header>
-
-<section class="about-section">
-    <div class="container">
-        <h1 class="centered-title">About Us</h1>
-        <div class="about-content">
-            <div class="text-content">
-                <h2>Who We Are</h2>
-                <p>Welcome to Movie Ticket Booking, your go-to platform for a seamless movie-watching experience.
-                    Our mission is to provide movie enthusiasts with a convenient and enjoyable way to book tickets
-                    online.</p>
-
-                <h2>Our Vision</h2>
-                <p>We envision a world where everyone can easily access and enjoy their favorite movies at their
-                    preferred cinemas. With our user-friendly platform, we aim to simplify the movie ticket booking
-                    process.</p>
-
-                <h2>Why Choose Us?</h2>
-                <ul>
-                    <li>Easy and Secure Booking Process</li>
-                    <li>Wide Range of Cinemas and Movies</li>
-                    <li>Real-time Seat Availability</li>
-                    <li>Exclusive Deals and Discounts</li>
-                    <li>User-Friendly Interface</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="team-section">
-    <div class="container">
-        <div class="team-members-container">
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 1" class="team-member-image">
-                <h3>Harini Senarathne</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 2" class="team-member-image">
-                <h3>Yahani Wikramasinghe</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 3" class="team-member-image">
-                <h3>Tamashi Kaviraj</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 4" class="team-member-image">
-                <h3>Deshan Weerakkody</h3>
-            </div>
-        </div>
-    </div>
-</section>
+      </style>
 
 
-<footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>About</h6>
-                <p class="text-justify">"Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!"</p>
-            </div>
+</head>
 
-            <div class="col-md-3">
-                <h6>Quick Links</h6>
-                <ul class="footer-links">
-                    <li><a href="{% url 'main:about_us' %}">About Us</a></li>
-                    <li><a href="{% url 'main:contact_us' %}">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-3">
-                <h6>Subscribe for Latest Updates</h6>
-                <form action="#" method="post" class="input-group">
-                    <input type="email" class="form-control" placeholder="Enter your email">
-                    <button class="btn btn-secondary" type="submit">Subscribe</button>
-                </form>
-=======
-<footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-20 col-md-30">
-                    <h4>About Us</h4>
-                    <p class="text-justify"><b>WELCOME TO FIMAX CINEMAS,</b><i> Discover The Magic of Movies With Filmax Cinemas – Your Go-To Destination For an Extraordinary Cinematic Experience. Streamlining Convenience and Excellence, Our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!</i></i></p>
+<body>
+    <section class="header">
+        <div class="container h-100 pt-4 d-flex flex-column justify-content-between">
+            <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
+                <img src="{% static "images/logo.png" %}" width="80" height="100" alt="logo" class="logo">
+                <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
+                    <a href="{% url 'main:home' %}" class="nav-link active text-white mx-3">Home</a>
+                    <a href="{% url 'main:movies' %}" class="nav-link text-white mx-3">Movies</a>
+                    <a href="{% url 'main:contact_us' %}" class="nav-link text-white mx-3">Contact Us</a>
+                    <a href="{% url 'main:about_us' %}" class="nav-link text-white mx-3">About Us</a>
                 </div>
             </div>
-            <hr>
+            <div class="d-flex flex-column justify-content-center align-items-left mb-5">
+                <h1 class="text-white film-name">FILMAX CINEMAS</h1>
+            </div>
         </div>
+    </section>
+
+    <section class="about-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-                        <a> FILMAX CINEMAS</a>.
-                    </p>
+            <h1 class="centered-title text-center">About Us</h1>
+            <div class="about-content">
+                <div class="text-content">
+                  <div class="section">
+                    <h2>Who We Are</h2>
+                    <p>Welcome to Movie Ticket Booking, your go-to platform for a seamless movie-watching experience.
+                        Our mission is to provide movie enthusiasts with a convenient and enjoyable way to book tickets
+                        online.</p>
                 </div>
-
-
->>>>>>> ec11c07b2feb8b6dc9ba08baf9f82cb0be973c58
+                
+                <div class="section">
+                    <h2>Our Vision</h2>
+                    <p>We envision a world where everyone can easily access and enjoy their favorite movies at their
+                        preferred cinemas. With our user-friendly platform, we aim to simplify the movie ticket booking
+                        process.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Why Choose Us?</h2>
+                    <ul>
+                        <li>Easy and Secure Booking Process</li>
+                        <li>Wide Range of Cinemas and Movies</li>
+                        <li>Real-time Seat Availability</li>
+                        <li>Exclusive Deals and Discounts</li>
+                        <li>User-Friendly Interface</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <hr>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-                    <a href="#" target="_blank">FILMAX CINEMAS</a>.
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </section>
+  
+
+    <footer class="site-footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 col-md-6">
+                  <h6>About</h6>
+                  <p class="text-justify">"Discover the magic of movies with Filmax Cinemas – your go-to destination for an extraordinary cinematic experience. Streamlining convenience and excellence, our cutting-edge app puts showtimes, seat selection, and ticket booking in the palm of your hand. Join us in redefining movie-watching, where innovation meets comfort. Welcome to Filmax Cinemas – where movies come to life!"</p>
+              </div>
+
+              <div class="col-md-3">
+                  <h6>Quick Links</h6>
+                  <ul class="footer-links">
+                      <li><a href="{% url 'main:about_us' %}">About Us</a></li>
+                      <li><a href="{% url 'main:contact_us' %}">Contact Us</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-md-3">
+                  <h6>Subscribe for Latest Updates</h6>
+                  <form action="#" method="post" class="input-group">
+                      <input type="email" class="form-control" placeholder="Enter your email">
+                      <button class="btn btn-secondary" type="submit">Subscribe</button>
+                  </form>
+              </div>
+          </div>
+          <hr>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-sm-6 col-xs-12">
+                  <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                      <a href="#" target="_blank">FILMAX CINEMAS</a>.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </footer>
 </body>
+
 </html>
