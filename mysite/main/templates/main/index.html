@@ -27,18 +27,18 @@
             height: auto; /* To maintain the aspect ratio */
         }
 
-        
+
         .menu-bar {
             font-size: 20px; /* Adjust the font size as needed */
         }
 
-        
+
         .menu-bar .nav-link {
             margin-right: 20px; /* Adjust the margin as needed */
         }
 
 
-    
+
           .site-footer
           {
             background-color:#26272b;
@@ -77,49 +77,57 @@
             </div>
             <div class="d-flex flex-column justify-content-center align-items-left mb-5">
                 <h1 class="text-white film-name">FILMAX CINEMAS</h1>
-                <a href="./index.php" class="text-decoration-none text-white">About the movie >></a>
+                <a href="./index.php" class="text-decoration-none text-white">About the movie </a>
             </div>
         </div>
     </section>
 
 <!-- Now Showing Movies -->
-    <section class="screening container mt-5">
-        <h2 class="text-center text-white">NOW SHOWING</h2>
-        <div class="movie-wrapper mt-5 mb-5 row justify-content-center align-items-center">
-            {% for movie in now_showing_movies %}
-                <div class="movie-card d-flex mx-3 my-3 col-lg-6">
-                    <img src="{{ movie.image }}" class="card-img-top rounded-4" alt="{{ movie.name }}" width="100%" height="auto">
+<section class="screening container mt-5">
+    <h2 class="text-center text-white">NOW SHOWING</h2>
+    <div class="row">
+        {% for movie in now_showing_movies %}
+            <div class="col-md-4 mb-4">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ movie.image }}" alt="{{ movie.name }}">
+                    <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
+                    <p class="card-text">Date: {{ movie.date }}</p>
+                    <a href='#' class="btn btn-primary">Book Now</a>
+                    <!-- Add more details below the buttons as needed -->
                 </div>
-                <div class="details col-lg-6 d-flex flex-column justify-content-center align-items-start">
-                    <h3>{{ movie.name }}</h3>
-                    <p class="mb-3">{{ movie.date }}</p>
-                    <p class="mb-3">{{ movie.duration }}</p>
-                    <!-- Add more details as needed -->
-                    <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-                <div class="separator-vertical col-lg-12 my-3 d-lg-none"></div> <!-- Add vertical separator for smaller screens -->
-            {% endfor %}
-        </div>
-    </section>
+            </div>
+
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+
 
 <!-- Upcoming Movies -->
-    <section class="screening container mt-5">
-        <h2 class="text-center text-white">UPCOMING MOVIES</h2>
-        <div class="movie-wrapper mt-5 mb-5 row justify-content-center align-items-center">
-            {% for movie in upcoming_movies %}
-                <div class="movie-card d-flex mx-3 my-3 col-lg-6">
-                    <img src="{{ movie.image }}" class="card-img-top rounded-4" alt="{{ movie.name }}" width="100%" height="auto">
+<section class="screening container mt-5">
+<h2 class="text-center text-white">UPCOMING MOVIES</h2>
+<div class="row">
+    {% for movie in upcoming_movies %}
+        <div class="col-md-4 mb-4">
+
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ movie.image }}" alt="{{ movie.name }}">
+                    <h5 class="card-title"><a class="white">{{ movie.name }}</a></h5>
+                    <p class="card-text">Date: {{ movie.date }}</p>
+                    <a href='#' class="btn btn-primary">Book Now</a>
+                    <!-- Add more details below the buttons as needed -->
                 </div>
-                <div class="details col-lg-6 d-flex flex-column justify-content-center align-items-start">
-                    <h3>{{ movie.name }}</h3>
-                    <p class="mb-3">{{ movie.date }}</p>
-                    <!-- Add more details as needed -->
-                    <a href="#" class="btn btn-primary">Book Now</a>
-                </div>
-                <div class="separator-vertical col-lg-12 my-3 d-lg-none"></div> <!-- Add vertical separator for smaller screens -->
-            {% endfor %}
+            </div>
         </div>
-    </section>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+            </div><div class="row">
+        {% endif %}
+    {% endfor %}
+</div>
+</section>
     <footer class="site-footer">
         <div class="container">
             <div class="row">
