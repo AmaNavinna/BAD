@@ -1,449 +1,65 @@
-{%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>MovieHub</title>
-
-   
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-aKs2ZL2FZuMKSFi+exvF4jsvTC+4VIxDtvZxMtVVZZzB1MdAzLl3WSdUfKDS3orS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-          body {
-              background-color: black;
-          }
-          
-          .header{
-              width: 100vw;
-              height: 10vh;
-              background-attachment: fixed;
-              margin-bottom:150px;
-          }
-          
-          .overlay{
-              width: 100%;
-              height: 100%;
-              background: rgba(1, 1, 27, 0.8);
-          }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-          
-          
-          .navbar{
-              background-color: transparent !important;
-              height: 10px;
-          }
-          
-          .logo {
-            width: 150px;
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            margin: 20px;
+            text-align: justify;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
             height: auto;
-          
-          }
-          
-          .menu-bar {
-            font-size: 20px; /* Adjust the font size as needed */
         }
-
-        .menu-bar .nav-link {
-            margin-right: 20px; /* Adjust the margin as needed */
-        }
-
-          .site-footer
-          {
-            background-color:#26272b;
-            padding:45px 0 20px;
-            font-size:15px;
-            line-height:24px;
-            color:#737373;
-          }
-          .site-footer hr
-          {
-            border-top-color:#bbb;
-            opacity:0.5
-          }
-          .site-footer hr.small
-          {
-            margin:20px 0
-          }
-          .site-footer h6
-          {
-            color:#fff;
-            font-size:16px;
-            text-transform:uppercase;
-            margin-top:5px;
-            letter-spacing:2px
-          }
-          .site-footer a
-          {
-            color:#737373;
-          }
-          .site-footer a:hover
-          {
-            color:#3366cc;
-            text-decoration:none;
-          }
-          .footer-links
-          {
-            padding-left:0;
-            list-style:none
-          }
-          .footer-links li
-          {
-            display:block
-          }
-          .footer-links a
-          {
-            color:#737373
-          }
-          .footer-links a:active,.footer-links a:focus,.footer-links a:hover
-          {
-            color:#3366cc;
-            text-decoration:none;
-          }
-          .footer-links.inline li
-          {
-            display:inline-block
-          }
-          .site-footer .social-icons
-          {
-            text-align:right
-          }
-          .site-footer .social-icons a
-          {
-            width:40px;
-            height:40px;
-            line-height:40px;
-            margin-left:6px;
-            margin-right:0;
-            border-radius:100%;
-            background-color:#33353d
-          }
-          .copyright-text
-          {
-            margin:0
-          }
-          @media (max-width:991px)
-          {
-            .site-footer [class^=col-]
-            {
-              margin-bottom:30px
-            }
-          }
-          @media (max-width:767px)
-          {
-            .site-footer
-            {
-              padding-bottom:0
-            }
-            .site-footer .copyright-text,.site-footer .social-icons
-            {
-              text-align:center
-            }
-          }
-          .social-icons
-          {
-            padding-left:0;
-            margin-bottom:0;
-            list-style:none
-          }
-          .social-icons li
-          {
-            display:inline-block;
-            margin-bottom:4px
-          }
-          .social-icons li.title
-          {
-            margin-right:15px;
-            text-transform:uppercase;
-            color:#96a2b2;
-            font-weight:700;
-            font-size:13px
-          }
-          .social-icons a{
-            background-color:#eceeef;
-            color:#818a91;
-            font-size:16px;
-            display:inline-block;
-            line-height:44px;
-            width:44px;
-            height:44px;
-            text-align:center;
-            margin-right:8px;
-            border-radius:100%;
-            -webkit-transition:all .2s linear;
-            -o-transition:all .2s linear;
-            transition:all .2s linear
-          }
-          .social-icons a:active,.social-icons a:focus,.social-icons a:hover
-          {
-            color:#fff;
-            background-color:#29aafe
-          }
-          .social-icons.size-sm a
-          {
-            line-height:34px;
-            height:34px;
-            width:34px;
-            font-size:14px
-          }
-          .social-icons a.facebook:hover
-          {
-            background-color:#3b5998
-          }
-          .social-icons a.twitter:hover
-          {
-            background-color:#00aced
-          }
-          .social-icons a.linkedin:hover
-          {
-            background-color:#007bb6
-          }
-          .social-icons a.dribbble:hover
-          {
-            background-color:#ea4c89
-          }
-          @media (max-width:767px)
-          {
-            .social-icons li.title
-            {
-              display:block;
-              margin-right:0;
-              font-weight:600
-            }
-          }
-          
-          .footer form {
-              margin-top: 15px;
-          }
-          
-          .footer form .input-group {
-              width: 100%;
-          }
-          
-          .footer form input {
-              width: 70%;
-          }
-          
-          .footer form button {
-              width: 30%;
-          }
-      </style>
-
+    </style>
+    <title>About Us - Filmax Cinema</title>
 </head>
-
 <body>
-    <section class="header">
-        <div class="container h-10 pt-4 d-flex flex-column justify-content-between">
-            <div class="navbar w-100 d-flex flex-row justify-content-between align-items-center">
-                <img src="{% static "images/logo.png" %}" alt="logo" class="logo">
-                <div class="menu-bar d-flex flex-row justify-content-center align-items-center">
-                    <a href="{% url 'main:home' %}" class="nav-link active text-white mx-3">Home</a>
-                    <a href="{% url 'main:movies' %}" class="nav-link text-white mx-3">Movies</a>
-                    <a href="{% url 'main:contact_us' %}" class="nav-link text-white mx-3">Contact Us</a>
-                    <a href="{% url 'main:about_us' %}" class="nav-link text-white mx-3">About Us</a>
-                </div>
-            </div>
-        </div>
+
+    <header>
+        <h1>Filmax Cinema</h1>
+    </header>
+
+    <section>
+        <h2>About Us</h2>
+
+        <p>Welcome to Filmax Cinemas, your exclusive gateway to a cinematic realm reimagined for the modern era! Immerse yourself in an unparalleled movie-watching experience, all conveniently at your fingertips. At Filmax Cinemas, we've revolutionized the way you indulge in the magic of the silver screen through our cutting-edge website.</p>
+
+        <p>A seamless blend of innovation and convenience that puts the latest blockbusters, indie gems, and international films right at your fingertips. No more queues, no more hassle – our user-friendly app lets you effortlessly explore showtimes, handpick your preferred seats, and secure your tickets with just a few taps.</p>
+
+        <p>Our state-of-the-art theaters are equipped with the latest audio and visual technology, ensuring that every movie you watch is a feast for the senses. Whether you're a fan of action-packed blockbusters, heartwarming dramas, or side-splitting comedies, we have something for everyone.But our commitment doesn't stop at your screen. Filmax Cinemas ensures that every visit is not just about the movie; it's about the entire experience. Say goodbye to long waits and hello to comfort and convenience. We bring the box office directly to your device, creating a cinematic journey that's as memorable as it is enjoyable.</p>
+
+        <p>At Filmax Cinema, we believe that watching a movie is more than just a pastime—it's an immersive journey that transports you to different worlds and sparks a range of emotions. Our commitment to excellence extends to every aspect of your visit, from the comfortable seating to the delectable snacks available at our concessions.</p>
+
+        <p>Join us for an unparalleled cinematic experience – where the enchantment of movies meets the ease of modern technology. Welcome to Filmax Cinemas, where every moment is a celebration of cinematic brilliance!We look forward to making your time with us unforgettable, one movie at a time.</p>
+
+        <img src="theater_image.jpg" alt="Movie Theater Interior">
     </section>
-<style>
 
-    .container {
-        width: 80%;
-        margin: auto;
-    }
-
-    .about-section {
-        padding: 50px 0;
-    }
-
-    .about-content {
-        display: flex;
-        align-items: center;
-        color: white; /* Add this line to set the text color to white */
-    }
-    
-
-    .about-image {
-        max-width: 100%;
-        border-radius: 8px;
-    }
-
-    .text-content {
-        margin-left: 20px;
-    }
-
-    .team-section {
-        background-color: #f4f4f4;
-        padding: 50px 0;
-    }
-
-    .team-member {
-        text-align: center;
-        margin: 20px;
-    }
-
-    .team-member-image {
-        max-width: 50%;
-        border-radius: 20%;
-    }
-
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-    }
-    .team-section .container {
-        display: flex;
-        justify-content: space-around; /* Adjust as needed, or use 'space-between' or 'space-evenly' */
-        align-items: center;
-        flex-wrap: wrap; /* Wrap items to the next line if they don't fit in the container */
-    }
-    
-    .team-member {
-        text-align: center;
-        flex: 1; /* Distribute available space equally among team members */
-        max-width: 200px; /* Optional: Set a maximum width for each team member */
-        margin: 5px; /* Optional: Add margin for spacing between team members */
-    }
-    
-    .team-members-container {
-        display: flex;
-        justify-content: space-between; /* Adjust as needed */
-    }
-    
-    .team-member {
-        text-align: center; /* Optional: Center text within each team member */
-    }
-    
-    .centered-title {
-        text-align: center;
-        color: white;
-    }
-    
-    .team-member h3 {
-        font-size: 16px; /* You can adjust the size to your preference */
-    }
-    
-    
-</style>
-
-<header>
-   
-</header>
-
-<section class="about-section">
-    <div class="container">
-        <h1 class="centered-title">About Us</h1>
-        <div class="about-content">
-            <div class="text-content">
-                <h2>Who We Are</h2>
-                <p>Welcome to Movie Ticket Booking, your go-to platform for a seamless movie-watching experience.
-                    Our mission is to provide movie enthusiasts with a convenient and enjoyable way to book tickets
-                    online.</p>
-
-                <h2>Our Vision</h2>
-                <p>We envision a world where everyone can easily access and enjoy their favorite movies at their
-                    preferred cinemas. With our user-friendly platform, we aim to simplify the movie ticket booking
-                    process.</p>
-
-                <h2>Why Choose Us?</h2>
-                <ul>
-                    <li>Easy and Secure Booking Process</li>
-                    <li>Wide Range of Cinemas and Movies</li>
-                    <li>Real-time Seat Availability</li>
-                    <li>Exclusive Deals and Discounts</li>
-                    <li>User-Friendly Interface</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="team-section">
-    <div class="container">
-        <div class="team-members-container">
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 1" class="team-member-image">
-                <h3>Harini Senarathne</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 2" class="team-member-image">
-                <h3>Yahani Wikramasinghe</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 3" class="team-member-image">
-                <h3>Tamashi Kaviraj</h3>
-            </div>
-
-            <div class="team-member">
-                <img src="{% static "images/team-member3.png" %}" alt="Team Member 4" class="team-member-image">
-                <h3>Deshan Weerakkody</h3>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <h6>About</h6>
-                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the
-                        upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or
-                        snippets as the code wants to be simple. We will help programmers build up concepts in different
-                        programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android,
-                        SQL and Algorithm.</p>
-                </div>
-
-                <div class="col-xs-6 col-md-3">
-                    <h6>Quick Links</h6>
-                    <ul class="footer-links">
-                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Subscribe to Newsletter -->
-                <div class="col-md-3">
-                    <h6>Subscribe for Latest Updates</h6>
-                    <form action="#" method="post">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="submit">Subscribe</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
-                        <a> MovieHub</a>.
-                    </p>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </footer>
 </body>
-
 </html>
-
